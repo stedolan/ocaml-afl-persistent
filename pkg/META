@@ -1,0 +1,4 @@
+description = ""
+version = "0.1"
+requires = "unix"
+archive(native) = "afl-persistent.cmxa"
