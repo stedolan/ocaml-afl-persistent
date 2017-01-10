@@ -10,8 +10,6 @@ build:
            "--pinned" "%{pinned}%"]]
 available: [ ocaml-version >= "4.05" ]
 depends: [
-  "ocamlbuild" {build}
-  "ocamlfind" {build}
   "topkg" {build & >= "0.7.4"}
   "base-unix"
 ]
