@@ -5,13 +5,7 @@ homepage: "https://github.com/stedolan/ocaml-afl-persistent"
 bug-reports: "https://github.com/stedolan/ocaml-afl-persistent/issues"
 dev-repo: "https://github.com/stedolan/ocaml-afl-persistent.git"
 license: "MIT"
-build:
-[[ "ocaml" "pkg/pkg.ml" "build"
-           "--pinned" "%{pinned}%"]]
-available: [ ocaml-version >= "4.05" ]
+build: [[ "./build.sh" ]]
 depends: [
-  "ocamlbuild" {build}
-  "ocamlfind" {build}
-  "topkg" {build & >= "0.7.4"}
   "base-unix"
 ]

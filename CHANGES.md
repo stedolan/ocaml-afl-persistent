@@ -1,4 +1,17 @@
-v0.1 (6th December 2016)
+v1.2 (22nd May 2017)
+---------------------
+
+Allow installation on non-AFL switches.
+(Doesn't do much, but lets you use Crowbar in quickcheck mode)
+
+
+v1.1 (12th January 2017)
+---------------------
+
+Improved stability of instrumentation output
+
+
+v1.0 (6th December 2016)
 ---------------------
 
 Initial release
