@@ -1,0 +1,16 @@
+# afl-persistent
+
+doc: [
+  "CHANGES.md" {"CHANGES.md"}
+  "LICENSE.md" {"LICENSE.md"}
+  "README.md" {"README.md"} ]
+lib: [
+  "afl-persistent.opam" {"opam"}
+  "META" {"META"}
+  "_build/afl-persistent.a" {"afl-persistent.a"}
+  "_build/afl-persistent.cma" {"afl-persistent.cma"}
+  "_build/afl-persistent.cmxa" {"afl-persistent.cmxa"}
+  "_build/aflPersistent.cmi" {"aflPersistent.cmi"}
+  "_build/aflPersistent.cmti" {"aflPersistent.cmti"}
+  "_build/aflPersistent.cmx" {"aflPersistent.cmx"}
+  "_build/aflPersistent.mli" {"aflPersistent.mli"} ]
