@@ -9,7 +9,7 @@ let run f =
   let pid = Unix.getpid () in
   if persist then begin
     reset_instrumentation true;
-    for i = 1 to 1000 do
+    for i = 1 to 500 do
       f ();
       Unix.kill pid Sys.sigstop;
       reset_instrumentation false
