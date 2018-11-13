@@ -1,3 +1,8 @@
+v1.3 (13th Nov 2018)
+---------------------
+
+Uses /bin/sh instead of /bin/bash to fix install problems
+
 v1.2 (22nd May 2017)
 ---------------------
 
