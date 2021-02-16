@@ -1,0 +1,20 @@
+(rule
+ (targets afl-persistent.config aflPersistent.ml)
+ (deps
+  detect.sh
+  (:aflyes aflPersistent.available.ml)
+  (:aflno aflPersistent.stub.ml))
+ (action
+  (run sh ./detect.sh %{aflyes} %{aflno})))
+
+(library
+ (wrapped false)
+ (public_name afl-persistent)
+ (name afl_persistent)
+ (modules aflPersistent)
+ (libraries unix))
+
+(test
+ (name test)
+ (modules test)
+ (libraries afl_persistent))

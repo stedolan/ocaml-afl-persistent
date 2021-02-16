@@ -2,9 +2,6 @@
 
 set -e
 set -x
-cd `dirname $0`
-rm -rf _build/; rm -f afl-persistent.config
-mkdir _build; cd _build
 
 ocamlc='ocamlc -g -bin-annot'
 ocamlopt='ocamlopt -g -bin-annot'
@@ -28,28 +25,18 @@ else
     afl_available=false
 fi
 
-cat > ../afl-persistent.config <<EOF
+cat > afl-persistent.config <<EOF
 opam-version: "1.2"
 afl-available: $afl_available
 afl-always: $afl_always
 EOF
 
-
-cp ../aflPersistent.mli .
 if [ $afl_available = true ]; then
-    cp ../aflPersistent.ml .
+    cp "$1" aflPersistent.ml
 else
-    cp ../aflPersistent-stub.ml aflPersistent.ml
+    cp "$2" aflPersistent.ml
 fi
-
-$ocamlc -c aflPersistent.mli
-
-$ocamlc -c aflPersistent.ml
-$ocamlc -a aflPersistent.cmo -o afl-persistent.cma
-
-$ocamlopt -c aflPersistent.ml
-$ocamlopt -a aflPersistent.cmx -o afl-persistent.cmxa
-
+exit 0
 # test
 cp ../test.ml .
 ocamlc unix.cma afl-persistent.cma test.ml -o test && ./test
