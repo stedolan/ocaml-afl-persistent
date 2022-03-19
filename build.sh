@@ -6,8 +6,8 @@ cd `dirname $0`
 rm -rf _build/; rm -f afl-persistent.config
 mkdir _build; cd _build
 
-ocamlc='ocamlc -g -bin-annot'
-ocamlopt='ocamlopt -g -bin-annot'
+ocamlc='ocamlc -g -bin-annot -I +unix'
+ocamlopt='ocamlopt -g -bin-annot -I +unix'
 
 echo 'print_string "hello"' > afl_check.ml
 
@@ -52,5 +52,5 @@ $ocamlopt -a aflPersistent.cmx -o afl-persistent.cmxa
 
 # test
 cp ../test.ml .
-ocamlc unix.cma afl-persistent.cma test.ml -o test && ./test
-ocamlopt unix.cmxa afl-persistent.cmxa test.ml -o test && ./test
+ocamlc -I +unix unix.cma afl-persistent.cma test.ml -o test && ./test
+ocamlopt -I +unix unix.cmxa afl-persistent.cmxa test.ml -o test && ./test
