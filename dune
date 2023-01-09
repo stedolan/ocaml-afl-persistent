@@ -1,0 +1,9 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -35))))
+
+(library
+  (public_name afl-persistent)
+  (name AflPersistent)
+  (modules AflPersistent))
