@@ -1,3 +1,8 @@
+v1.4 (22nd May 2023)
+--------------------
+
+Switch build system to dune
+
 v1.3 (13th Nov 2018)
 ---------------------
 
