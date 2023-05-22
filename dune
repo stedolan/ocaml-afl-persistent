@@ -1,0 +1,7 @@
+(library
+ (wrapped false)
+ (public_name afl-persistent)
+ (name afl_persistent)
+ (modules aflPersistent)
+ (ocamlopt_flags (:standard -afl-inst-ratio 0))
+ (libraries unix))
