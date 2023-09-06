@@ -1,1 +1,1 @@
-val run : (unit -> unit) -> unit
+val run : ?max_cylces:int -> (unit -> unit) -> unit
