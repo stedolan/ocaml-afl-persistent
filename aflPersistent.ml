@@ -1,7 +1,7 @@
 external reset_instrumentation : bool -> unit = "caml_reset_afl_instrumentation"
 external sys_exit : int -> 'a = "caml_sys_exit"
 
-let run f =
+let run ?(max_cycles = 1000) f =
   let _ = try ignore (Sys.getenv "##SIG_AFL_PERSISTENT##") with Not_found -> () in
   let persist = match Sys.getenv "__AFL_PERSISTENT" with
     | _ -> true
@@ -9,7 +9,7 @@ let run f =
   let pid = Unix.getpid () in
   if persist then begin
     reset_instrumentation true;
-    for _ = 1 to 1000 do
+    for _ = 1 to max_cycles do
       f ();
       Unix.kill pid Sys.sigstop;
       reset_instrumentation false
