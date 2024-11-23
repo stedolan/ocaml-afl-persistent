@@ -2,6 +2,7 @@
 
 set -e
 tmpdir="$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir')"
+curdir="$(pwd)"
 output="$(pwd)/afl-persistent.config"
 cd "$tmpdir"
 echo 'print_string "Hello"' > test.ml
@@ -11,7 +12,7 @@ else
     afl_always=false
 fi
 rm test.*
-cd /
+cd "$curdir"
 rmdir "$tmpdir"
 
 cat > "$output" <<EOF
